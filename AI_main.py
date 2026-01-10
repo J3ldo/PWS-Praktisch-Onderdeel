@@ -190,7 +190,6 @@ def test(spam, ham, model, vocab):
     for mail in ham:
         subject = mail[0]
         body = mail[1]
-        print(mail)
 
         prob, is_spam = predict_spam(model, subject, body, vocab)
         if round(prob): false_positives += 1
@@ -298,3 +297,4 @@ if __name__ == "__main__":
     while not os.path.exists("./emissions.csv"): time.sleep(0.5)
     os.rename("./emissions.csv", "emissions_AIMAIN.csv")
     shutil.move("./emissions_AIMAIN.csv", "./results/emissions_AIMAIN.csv")
+
