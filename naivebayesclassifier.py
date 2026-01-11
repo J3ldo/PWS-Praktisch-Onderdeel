@@ -117,7 +117,7 @@ if __name__ == '__main__':
           f"False negatives: {false_negatives}/{data['scount']} - {false_negatives/data['scount']*100}")
 
     false_positives, false_negatives, positive_list, negative_list = validation_run()
-    print(f"Total ham: {data['hcount']} - Total spam: {data['scount']}\n"
+    print(f"Total ham: {len(validation['spam'])} - Total spam: {len(valdation['ham'])}\n"
           f"False positives: {false_positives}/{len(validation['ham'])} - {false_positives/len(validation['ham'])*100}\n"
           f"False negatives: {false_negatives}/{len(validation['spam'])} - {false_negatives/len(validation['spam'])*100}")
 
@@ -126,7 +126,7 @@ if __name__ == '__main__':
 
     print(f"Klaar. Dt: {round(t2-t1, 4)}")
     with open("./results/dt.txt", "a" if os.path.exists("./results/dt.txt") else "w") as f:
-        f.write(f"Dt NAIVE BAYES\n"
+        f.write(f"Dt NAIVE BAYES (MET VALDIDATION)\n"
                 f"Dt: {t2-t1}\n\n")
     while not os.path.exists("./emissions.csv"): time.sleep(0.5)
     os.rename("./emissions.csv", "./emissions_naive.csv")
