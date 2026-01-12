@@ -111,13 +111,14 @@ def validation_run():
 
 if __name__ == '__main__':
     t1 = time.time()
+
     false_positives, false_negatives, positive_list, negative_list = test_run()
     print(f"Total ham: {data['hcount']} - Total spam: {data['scount']}\n"
           f"False positives: {false_positives}/{data['hcount']} - {false_positives/data['hcount']*100}\n"
           f"False negatives: {false_negatives}/{data['scount']} - {false_negatives/data['scount']*100}")
 
     false_positives, false_negatives, positive_list, negative_list = validation_run()
-    print(f"Total ham: {len(validation['spam'])} - Total spam: {len(valdation['ham'])}\n"
+    print(f"Total ham: {len(validation['spam'])} - Total spam: {len(validation['ham'])}\n"
           f"False positives: {false_positives}/{len(validation['ham'])} - {false_positives/len(validation['ham'])*100}\n"
           f"False negatives: {false_negatives}/{len(validation['spam'])} - {false_negatives/len(validation['spam'])*100}")
 
